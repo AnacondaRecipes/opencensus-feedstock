@@ -22,10 +22,14 @@ requirements:
     - python
     - opencensus-context >=0.1.3
     - google-api-core >=1.0.0,<3.0.0
+    # Added six because it is a dependency despite not being mentioned upstream for this version of opencensus
+    - six ~= 1.16
 
 test:
   imports:
     - opencensus
+    # Check that six is available
+    - opencensus.metrics.export.metric_descriptor
   requires:
     - pip
   commands:
